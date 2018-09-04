@@ -34,13 +34,13 @@ if(localStorage.course){
      $('#getData').hide();
 }
         
-$(document).on('click', '#goCourse', function (e) {
+$("#goCourse").click(function() {
         localStorage.course=$('#courseId').val();
      $('#courseVal').hide();
      $('#getData').show();
 });
-        
-$(document).on('click', '#getData', function (e) {
+
+$("#getData").click(function() {
       navigator.geolocation.getCurrentPosition(onSuccess, onError);
 });
         
