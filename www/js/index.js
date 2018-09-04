@@ -43,11 +43,20 @@ var app = {
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
+        
+if(localStorage.course){
+        $('#courseVal').hide();
+}
+        
+$(document).on('click', '#goCourse', function (e) {
+        localStorage.course=$('#courseId').val();
+});
+        
+$(document).on('click', '#getData', function (e) {
+      navigator.geolocation.getCurrentPosition(onSuccess, onError);
+});
+        
 
-            // onSuccess Callback
-    // This method accepts a Position object, which contains the
-    // current GPS coordinates
-    //
     var onSuccess = function(position) {
         alert('Latitude: '          + position.coords.latitude          + '\n' +
               'Longitude: '         + position.coords.longitude         + '\n' +
@@ -66,7 +75,7 @@ var app = {
               'message: ' + error.message + '\n');
     }
  
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+   
         
     }
 };
