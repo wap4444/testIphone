@@ -17,15 +17,14 @@ var app = {
     onDeviceReady: function() {
       
         app.receivedEvent('deviceready');
+        document.addEventListener("pause", onPause, false);
     },
 function onPause() {
 navigator.geolocation.getCurrentPosition(onSuccess, onError);
-},
+}
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        
-          document.addEventListener("pause", onPause, false);
-        
+               
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
