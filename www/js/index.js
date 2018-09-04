@@ -54,6 +54,8 @@ if(localStorage.course){
         
 $(document).on('click', '#goCourse', function (e) {
         localStorage.course=$('#courseId').val();
+     $('#courseVal').hide();
+     $('#getData').show();
 });
         
 $(document).on('click', '#getData', function (e) {
