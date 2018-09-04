@@ -45,7 +45,11 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
         
 if(localStorage.course){
-        $('#courseVal').hide();
+     $('#courseVal').hide();
+     $('#getData').show();
+}else{
+     $('#courseVal').show();
+     $('#getData').hide();
 }
         
 $(document).on('click', '#goCourse', function (e) {
