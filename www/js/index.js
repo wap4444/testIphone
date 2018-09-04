@@ -41,16 +41,19 @@ $("#goCourse").click(function() {
 });
 
 $("#getData").click(function() {
+    
       navigator.geolocation.getCurrentPosition(onSuccess, onError);
 });
         
 
     var onSuccess = function(position) {
+        $('#load').show();  $('#getData').hide();
 lat=position.coords.latitude;
 longi=position.coords.longitude;
 busId=localStorage.course;
         $.ajax({type: 'POST',url: 'http://bus.smart-pavlodar.kz/api/busSimulator.php',data:{lat:lat,longi:longi,budId:busId},
 success: function(data){
+            $('#load').hide();  $('#getData').show();
 alert('Координаты отправлены|'+data);
 },
 error: function(XMLHttpRequest, textStatus, errorThrown){
