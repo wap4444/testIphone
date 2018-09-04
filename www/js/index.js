@@ -51,7 +51,7 @@ long=position.coords.longitude;
 busId=localStorage.course;
         $.ajax({type: 'POST',url: 'http://bus.smart-pavlodar.kz/api/busSimulator.php',data:{lat:lat,long:long,budId:busId},
 success: function(data){
-alert('Координаты отправлены');
+alert('Координаты отправлены|'+data);
 },
 error: function(XMLHttpRequest, textStatus, errorThrown){
 alert('Ошибка, попробуйте еще раз!');
