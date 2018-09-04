@@ -47,9 +47,9 @@ $("#getData").click(function() {
 
     var onSuccess = function(position) {
 lat=position.coords.latitude;
-long=position.coords.longitude;
+longi=position.coords.longitude;
 busId=localStorage.course;
-        $.ajax({type: 'POST',url: 'http://bus.smart-pavlodar.kz/api/busSimulator.php',data:{lat:lat,long:long,budId:busId},
+        $.ajax({type: 'POST',url: 'http://bus.smart-pavlodar.kz/api/busSimulator.php',data:{lat:lat,longi:longi,budId:busId},
 success: function(data){
 alert('Координаты отправлены|'+data);
 },
