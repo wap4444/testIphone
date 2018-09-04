@@ -11,6 +11,11 @@
     <preference name="DisallowOverscroll" value="true" />
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="latest" />
     <plugin name="cordova-plugin-geolocation" spec="~4.0.1" />
+    
+<edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
+    <string>need location access to find things nearby</string>
+</edit-config>
+    
     <preference name="phonegap-version" value="cli-7.1.0" />
         <preference name="target-device" value="handset" />
     <platform name="ios">
