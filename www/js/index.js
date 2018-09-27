@@ -15,13 +15,9 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-      
         app.receivedEvent('deviceready');
-        document.addEventListener("pause", onPause, false);
     },
-function onPause() {
-navigator.geolocation.getCurrentPosition(onSuccess, onError);
-}
+
     // Update DOM on a Received Event
     receivedEvent: function(id) {
                
