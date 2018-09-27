@@ -58,6 +58,7 @@ homeId=localStorage.course;
         $.ajax({type: 'POST',url: 'http://len.smart-pavlodar.kz/api/getCoord.php',data:{lat:lat,longi:longi,homeId:localStorage.homeId},
 success: function(data){
             $('#load').hide();
+    $('#otvet').show();
     $('#otvet').html('<a href="https://yandex.kz/maps/?mode=search&ll=76.941117%2C52.277225&z=16&text='+lat+'%20'+longi+'&oll=76.941117%2C52.277225&ol=geo" target="system">'+data+'</a>');
 },
 error: function(XMLHttpRequest, textStatus, errorThrown){
