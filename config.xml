@@ -9,6 +9,11 @@
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
+    <preference name="orientation" value="portrait" />
+    <preference name="target-device" value="handset" />
+<preference name="android-minSdkVersion"      value="15" />
+<preference name="android-targetSdkVersion" value="26" />
+    
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="latest" />
     <plugin name="cordova-plugin-geolocation" spec="~4.0.1" />
     <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
@@ -18,7 +23,17 @@
 </edit-config>
     
     <preference name="phonegap-version" value="cli-7.1.0" />
-        <preference name="target-device" value="handset" />
+    
+    <platform name="android">
+          
+     	<icon src="www/res/android/drawable-mdpi/ic_launcher.png" density="mdpi" />
+     	<icon src="www/res/android/drawable-hdpi/ic_launcher.png" density="hdpi" />
+     	<icon src="www/res/android/drawable-xhdpi/ic_launcher.png" density="xhdpi" />
+     	<icon src="www/res/android/drawable-xxhdpi/ic_launcher.png" density="xxhdpi" />
+     	<icon src="www/res/android/drawable-xxxhdpi/ic_launcher.png" density="xxxhdpi" />
+    </platform>
+    
+    
     <platform name="ios">
         <icon height="57" platform="ios" src="res/icon/ios/icon.png" width="57" />
         <icon height="114" platform="ios" src="res/icon/ios/icon@2x.png" width="114" />
@@ -55,6 +70,13 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
     
     <engine name="ios" spec="latest" />
+    
+
+    
+    
 </widget>
