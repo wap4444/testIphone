@@ -47,10 +47,11 @@ function myFunction() {
 myFunction();
 
     var onSuccess = function(position) {
+        alert(position.coords.latitude);
  $('#load').show();
 lat=position.coords.latitude;
 longi=position.coords.longitude;
-busId=localStorage.course;
+homeId=localStorage.course;
         $.ajax({type: 'POST',url: 'http://len.smart-pavlodar.kz/api/getCoord.php',data:{lat:lat,longi:longi,homeId:homeId},
 success: function(data){
             $('#load').hide();
