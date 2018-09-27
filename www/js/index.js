@@ -43,7 +43,7 @@ function myFunction() {
         success: function(data) {
         resp = JSON.parse(data);
         $.each(resp, function(key, data) {
-        $('#homeId').append('  <option value="'+resp[key].id+'">'+resp[key].name+'</option>');
+        $('#homeId').append('  <option value="'+resp[key].id_f+'">'+resp[key].NazvUlitsy+', '+resp[key].NomerDom+'</option>');
         });
        }
       });
