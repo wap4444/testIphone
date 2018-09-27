@@ -30,6 +30,8 @@ var app = {
 
 $("#getData").click(function() {
     var homeId = $('#homeId').val();
+    alert(homeId);
+  localStorage.homeId=$('#homeId').val();
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 });
         
@@ -46,13 +48,14 @@ function myFunction() {
 }
 myFunction();
 
+
     var onSuccess = function(position) {
-        alert(position.coords.latitude);
- $('#load').show();
+  
+        $('#load').show();
 lat=position.coords.latitude;
 longi=position.coords.longitude;
 homeId=localStorage.course;
-        $.ajax({type: 'POST',url: 'http://len.smart-pavlodar.kz/api/getCoord.php',data:{lat:lat,longi:longi,homeId:homeId},
+        $.ajax({type: 'POST',url: 'http://len.smart-pavlodar.kz/api/getCoord.php',data:{lat:lat,longi:longi,homeId:localStorage.homeId},
 success: function(data){
             $('#load').hide();
 alert('Координаты отправлены|'+data);
