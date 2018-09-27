@@ -51,13 +51,14 @@ myFunction();
     var onSuccess = function(position) {
   
         $('#load').show();
+        $('#otvet').hide();
 lat=position.coords.latitude;
 longi=position.coords.longitude;
 homeId=localStorage.course;
         $.ajax({type: 'POST',url: 'http://len.smart-pavlodar.kz/api/getCoord.php',data:{lat:lat,longi:longi,homeId:localStorage.homeId},
 success: function(data){
             $('#load').hide();
-alert('Координаты отправлены|'+data);
+    $('#otvet').html('<a href="https://yandex.kz/maps/?mode=search&ll=76.941117%2C52.277225&z=16&text='+lat+'%20'+longi+'&oll=76.941117%2C52.277225&ol=geo" target="system">'+data+'</a>');
 },
 error: function(XMLHttpRequest, textStatus, errorThrown){
 alert('Ошибка, попробуйте еще раз!');
