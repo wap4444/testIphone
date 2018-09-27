@@ -47,10 +47,22 @@ $("#goCourse").click(function() {
 });
 
 $("#getData").click(function() {
-    
-      navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    var homeId = $('#homeId').val();
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
 });
         
+function myFunction() {
+    $('#homeId').empty();
+      $.ajax({type: 'POST',url: 'http://controlsoft.kz/sergey.php',data:{qqq:1},
+        success: function(data) {
+        resp = JSON.parse(data);
+        $.each(resp, function(key, data) {
+        $('#homeId').append('  <option value="'+resp[key].id+'">'+resp[key].name+'</option>');
+        });
+       }
+      });
+}
+myFunction();
 
     var onSuccess = function(position) {
         $('#load').show();  $('#getData').hide();
