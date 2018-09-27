@@ -13,9 +13,9 @@
     <preference name="target-device" value="handset" />
 <preference name="android-minSdkVersion"      value="15" />
 <preference name="android-targetSdkVersion" value="26" />
-    
+ <preference name="Fullscreen" value="true" />   
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="latest" />
-    <plugin name="cordova-plugin-geolocation" spec="~4.0.1" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
     <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
     <plugin name="cordova-plugin-device" spec="1.1.6" />
 <plugin name="cordova-plugin-device-orientation" spec="1.0.7" />
@@ -35,7 +35,22 @@
 
     
     <platform name="android">
-          
+            <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+            <uses-permission android:name="android.permission.CAMERA" />
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+            <uses-permission android:name="android.permission.READ_CONTACTS" />
+            <uses-permission android:name="android.permission.READ_CALENDAR" />
+        </config-file>
      	<icon src="www/res/android/drawable-mdpi/ic_launcher.png" density="mdpi" />
      	<icon src="www/res/android/drawable-hdpi/ic_launcher.png" density="hdpi" />
      	<icon src="www/res/android/drawable-xhdpi/ic_launcher.png" density="xhdpi" />
@@ -86,7 +101,7 @@
     
     <engine name="ios" spec="latest" />
     
-
+    <engine name="android" spec="latest" />
     
     
 </widget>
