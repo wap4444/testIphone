@@ -30,7 +30,6 @@ var app = {
 
 $("#getData").click(function() {
     var homeId = $('#homeId').val();
-    alert(homeId);
   localStorage.homeId=$('#homeId').val();
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 });
