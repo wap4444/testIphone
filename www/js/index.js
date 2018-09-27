@@ -31,20 +31,6 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-        
-if(localStorage.course){
-     $('#courseVal').hide();
-     $('#getData').show();
-}else{
-     $('#courseVal').show();
-     $('#getData').hide();
-}
-        
-$("#goCourse").click(function() {
-        localStorage.course=$('#courseId').val();
-     $('#courseVal').hide();
-     $('#getData').show();
-});
 
 $("#getData").click(function() {
     var homeId = $('#homeId').val();
@@ -53,7 +39,7 @@ $("#getData").click(function() {
         
 function myFunction() {
     $('#homeId').empty();
-      $.ajax({type: 'POST',url: 'http://controlsoft.kz/sergey.php',data:{qqq:1},
+      $.ajax({type: 'POST',url: 'http://len.smart-pavlodar.kz/api/allHomes.php',data:{qqq:1},
         success: function(data) {
         resp = JSON.parse(data);
         $.each(resp, function(key, data) {
@@ -65,13 +51,13 @@ function myFunction() {
 myFunction();
 
     var onSuccess = function(position) {
-        $('#load').show();  $('#getData').hide();
+ $('#load').show();
 lat=position.coords.latitude;
 longi=position.coords.longitude;
 busId=localStorage.course;
-        $.ajax({type: 'POST',url: 'http://bus.smart-pavlodar.kz/api/busSimulator.php',data:{lat:lat,longi:longi,budId:busId},
+        $.ajax({type: 'POST',url: 'http://len.smart-pavlodar.kz/api/getCoord.php',data:{lat:lat,longi:longi,homeId:homeId},
 success: function(data){
-            $('#load').hide();  $('#getData').show();
+            $('#load').hide();
 alert('Координаты отправлены|'+data);
 },
 error: function(XMLHttpRequest, textStatus, errorThrown){
