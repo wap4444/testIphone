@@ -1,6 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="cordova.plugins.diagnostic.example" version="4.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Diagnostic plugin example</name>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+ id        = "kz.citycard"
+      version   = "0.22">
+
+    <name>CityCard Android</name>
     <description>
         An example app that demonstrates use of cordova.plugins.diagnostic
     </description>
@@ -50,7 +54,15 @@
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
     <plugin name="cordova-plugin-device" spec="^2.0.1" />
     <plugin name="cordova-plugin-file" spec="^6.0.1" />
+    
+    <plugin name="phonegap-plugin-barcodescanner" />
+    <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
+    <string>To scan barcodes</string>
+</edit-config>
+    
     <engine name="android" spec="latest" />
     <engine name="ios" spec="latest" />
     <engine name="windows" spec="latest" />
+    
+    
 </widget>
