@@ -28,53 +28,31 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
-$("#getData").click(function() {
-    var homeId = $('#homeId').val();
-  localStorage.homeId=$('#homeId').val();
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
-});
-        
-function myFunction() {
-    $('#homeId').empty();
-      $.ajax({type: 'POST',url: 'http://len.smart-pavlodar.kz/api/allHomes.php',data:{qqq:1},
-        success: function(data) {
-        resp = JSON.parse(data);
-        $.each(resp, function(key, data) {
-        $('#homeId').append('  <option value="'+resp[key].id_f+'">'+resp[key].NazvUlitsy+', '+resp[key].NomerDom+'</option>');
-        });
-       }
-      });
-}
-myFunction();
 
-
-    var onSuccess = function(position) {
-  
-        $('#load').show();
-        $('#otvet').hide();
-lat=position.coords.latitude;
-longi=position.coords.longitude;
-homeId=localStorage.course;
-        $.ajax({type: 'POST',url: 'http://len.smart-pavlodar.kz/api/getCoord.php',data:{lat:lat,longi:longi,homeId:localStorage.homeId},
-success: function(data){
-            $('#load').hide();
-    $('#otvet').show();
-    $('#otvet').html('<a href="https://yandex.kz/maps/?mode=search&ll=76.941117%2C52.277225&z=16&text='+lat+'%20'+longi+'&oll=76.941117%2C52.277225&ol=geo" target="system">'+data+'</a>');
-},
-error: function(XMLHttpRequest, textStatus, errorThrown){
-alert('Ошибка, попробуйте еще раз!');
-}
-});
-};
- 
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
- 
-   
+cordova.plugins.barcodeScanner.scan(
+      function (result) {
+          alert("We got a barcode\n" +
+                "Result: " + result.text + "\n" +
+                "Format: " + result.format + "\n" +
+                "Cancelled: " + result.cancelled);
+      },
+      function (error) {
+          alert("Scanning failed: " + error);
+      },
+      {
+          preferFrontCamera : true, // iOS and Android
+          showFlipCameraButton : true, // iOS and Android
+          showTorchButton : true, // iOS and Android
+          torchOn: true, // Android, launch with the torch switched on (if available)
+          saveHistory: true, // Android, save scan history (default false)
+          prompt : "Place a barcode inside the scan area", // Android
+          resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
+          formats : "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED
+          orientation : "landscape", // Android only (portrait|landscape), default unset so it rotates with the device
+          disableAnimations : true, // iOS
+          disableSuccessBeep: false // iOS and Android
+      }
+   );
         
     }
 };
