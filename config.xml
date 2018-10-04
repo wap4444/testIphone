@@ -14,6 +14,7 @@
     <access origin="*" />
     <preference name="Fullscreen" value="false" />
     <preference name="phonegap-version" value="cli-8.0.0" />
+	<preference name="android-build-tool" value="gradle" />
     <preference name="cordova.plugins.diagnostic.modules" value="LOCATION BLUETOOTH WIFI CAMERA NOTIFICATIONS MICROPHONE CONTACTS CALENDAR REMINDERS MOTION NFC EXTERNAL_STORAGE" />
 	  <platform name="android">
         <config-file parent="/*" target="AndroidManifest.xml">
@@ -46,6 +47,7 @@
         <preference name="windows-target-version" value="10.0" />
         <preference name="target-device" value="universal" />
         <preference name="Windows.Universal-MinVersion" value="10.0.0.0" />
+	    
     </platform>
     <plugin name="cordova-plugin-whitelist" spec="*" />
     <plugin name="cordova.plugins.diagnostic" spec="*" />
@@ -54,6 +56,7 @@
     <plugin name="cordova-plugin-file" spec="^6.0.1" />
     
     <plugin name="phonegap-plugin-barcodescanner" />
+	
     <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
     <string>To scan barcodes</string>
 </edit-config>
