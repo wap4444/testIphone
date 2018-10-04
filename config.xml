@@ -1,9 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget xmlns     = "http://www.w3.org/ns/widgets"
-        xmlns:gap = "http://phonegap.com/ns/1.0"
- id        = "kz.citycard"
-      version   = "0.22">
-	  <name>CityCard Android</name>
+<widget xmlns     = "http://www.w3.org/ns/widgets"        xmlns:gap = "http://phonegap.com/ns/1.0" id = "kz.citycard" version   = "0.22">
+	<name>CityCard Android</name>
     <description>
         An example app that demonstrates use of cordova.plugins.diagnostic
     </description>
@@ -13,7 +10,7 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="Fullscreen" value="false" />
-    <preference name="phonegap-version" value="cli-8.0.0" />
+  	<preference name="phonegap-version" value="cli-8.0.0" />
 	<preference name="android-build-tool" value="gradle" />
     <preference name="cordova.plugins.diagnostic.modules" value="LOCATION BLUETOOTH WIFI CAMERA NOTIFICATIONS MICROPHONE CONTACTS CALENDAR REMINDERS MOTION NFC EXTERNAL_STORAGE" />
 	  <platform name="android">
@@ -34,36 +31,18 @@
             <uses-permission android:name="android.permission.READ_CALENDAR" />
         </config-file>
     </platform>
-    <platform name="ios">
-        <plugin name="cordova-plugin-background-fetch" spec="*" />
-        <config-file parent="UIBackgroundModes" platform="ios" target="*-Info.plist">
-            <array>
-                <string>fetch</string>
-                <string>remote-notification</string>
-            </array>
-        </config-file>
-    </platform>
-    <platform name="windows">
-        <preference name="windows-target-version" value="10.0" />
-        <preference name="target-device" value="universal" />
-        <preference name="Windows.Universal-MinVersion" value="10.0.0.0" />
-	    
-    </platform>
+
     <plugin name="cordova-plugin-whitelist" spec="*" />
     <plugin name="cordova.plugins.diagnostic" spec="*" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
     <plugin name="cordova-plugin-device" spec="^2.0.1" />
     <plugin name="cordova-plugin-file" spec="^6.0.1" />
-    
     <plugin name="phonegap-plugin-barcodescanner" />
 	
-    <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
-    <string>To scan barcodes</string>
+<edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
+<string>To scan barcodes</string>
 </edit-config>
     
-    <engine name="android" spec="latest" />
-    <engine name="ios" spec="latest" />
-    <engine name="windows" spec="latest" />
-    
+    <engine name="android" spec="latest" />   
     
 </widget>
